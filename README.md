@@ -1,5 +1,5 @@
 # MANGO X ROTH IRA CALCULATOR
-MANGO X ROTH IRA Calculator, by FinMango. To see it in action, go to ..
+MANGO X ROTH IRA Calculator, by FinMango. Will be @ https://finmango.github.io/mango-x-rothira/
 
 ### Building the website
 The website is automatically built upon a Git push. To build it manually, run:
