@@ -1,0 +1,235 @@
+<!DOCTYPE html><html><!-- HTML page head --><head>
+    <!-- HTML metadata -->
+    <meta charset="UTF-8">
+    <title>FinMango Roth IRA Calculator</title>
+    <meta name="description" content="Roth IRA calculator, made by FinMango">
+    <link rel="icon" type="image/ico" href="./static/favicon.ico">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FinMango Roth IRA Calculator">
+
+    <!-- Homescreen icons -->
+    <link rel="apple-touch-icon" href="./static/favicon.ico">
+
+    <!-- Capabilities-related metadata -->
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- MomentJS -->
+    <script type="text/javascript" src="./third_party/moment/min/moment.min.js"></script>
+
+    <!-- Custom styles and fonts -->
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/goldman-sans">
+    <link rel="stylesheet" href="./third_party/picnic/picnic.min.css">
+    <link rel="stylesheet" href="./static/styles.min.css">
+
+    <!-- Polyfills, custom functions and constants -->
+    <script type="text/javascript" src="./static/cache.min.js"></script>
+    <script type="text/javascript" src="./static/formatter.min.js"></script>
+    <script type="text/javascript" src="./static/component-helper.min.js"></script>
+    <script type="text/javascript" src="./static/polyfills.min.js"></script>
+    <script type="text/javascript">const DEFAULT_OPTIONS={};CURRENT_OPTIONS=Object.keys(DEFAULT_OPTIONS).reduce((t,e)=>Object.assign(t,{[e]:sessionStorage.getItem(e)||DEFAULT_OPTIONS[e]}),{}),GOOGLE_CHARTS_CONFIG=window.GOOGLE_CHARTS_CONFIG||{theme:"material",fontName:"Goldman Sans",colors:["{{theme-primary}}"],legend:{position:CURRENT_OPTIONS.chart_legend_position||"none"},chartArea:{width:"100%",height:"100%",left:parseInt(CURRENT_OPTIONS.chart_padding_left||64),bottom:parseInt(CURRENT_OPTIONS.chart_padding_bottom||48),top:parseInt(CURRENT_OPTIONS.chart_padding_top||24)},titlePosition:"in",axisTitlesPosition:"in",hAxis:{textPosition:"bottom",textStyle:{fontName:"Goldman Sans"}},vAxis:{textPosition:"out",viewWindow:{min:0},textStyle:{fontName:"Goldman Sans"}},height:parseInt(CURRENT_OPTIONS.chart_height||300)};</script>
+
+
+
+</head><body>
+    <!-- Page header -->
+    <header class="flex center one">
+    <div>
+        <a class="centered uppercase" target="_blank" href="https://finmango.org" style="display: block; padding: 0;">
+            <img class="centered" src="./static/logo.png" height="128" width="auto">
+        </a>
+    </div>
+</header>
+
+    <main class="single-column-wide" style="margin-top: auto; margin-bottom: auto;">
+
+        <div id="mangox-rothira-survey">
+    <style>.animated{transition:all .5s ease-in-out}.screen{height:0;opacity:0;overflow:hidden;max-width:600px;display:block;margin-left:auto;margin-right:auto}.screen-visible{height:auto;opacity:1;overflow:initial}</style>
+
+    <div class="screen animated" id="mangox-rothira-screen-1">
+        <h2 class="centered" style="text-transform: uppercase; font-size: xx-large;">
+            Roth IRA Calculator
+        </h2>
+        <p class="centered one" style="text-align: justify;">
+            <b>WANT TO BECOME A MILLIONAIRE SOMEDAY 💲📈?</b> Two major ways to build wealth for your future and retirement
+            are opening investment accounts such as a <b>ROTH IRA</b> or Brokerage Account.            
+        </p>
+        <p class="centered one" style="text-align: justify;">
+            Unlike other types of accounts, your Roth IRA balance <b>GROWS TAX-FREE</b> and you can start at any age. 
+        </p>
+        <p class="centered one" style="text-align: justify;">
+            Let's see how you can much your savings can grow in a Roth IRA.
+        </p>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+    </div>
+
+    <div class="screen animated" id="mangox-rothira-screen-2">
+        <div>
+            <h2 class="centered" style="text-transform: uppercase; font-size: x-large;">
+                What is your age and income? 
+            </h2>
+            <p class="centered one" style="text-align: justify;">
+                You can open a Roth IRA at any age as long as you make money from a job or self-employment 
+                (examples: Baby-Sitting, running your own business). 
+                If you are below 18, you need your parent or guardian's assistance though!            
+            </p>
+        </div>
+        <div class="centered flex one">
+            <label for="age">
+                Your Age
+            </label>
+            <input type="number" pattern="/d*" id="age" min="16" value="16">
+            <span class="centered" style="font-size: small;"> 
+            </span>
+        </div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="centered flex one">
+            <label for="initial-income">
+                How Much $ Do You Make Per Year?
+            </label>
+            <input type="number" pattern="/d*" id="initial-income" min="1" max="139000" value="10000">
+            <span class="centered" style="font-size: small;">
+                Sources of earned income are having a job or self-employment.
+                To qualify for a Roth IRA, you must make less than $140,000 per year before taxes.
+                
+            </span>
+        </div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+    </div>
+
+
+    <div class="screen animated" id="mangox-rothira-screen-3">
+        <h2 class="centered" style="text-transform: uppercase; font-size: x-large;">
+            Contributing To and Withdrawing From Your Roth IRA 
+        </h2>
+        <p class="centered one" style="text-align: justify;">
+           If you are under the age of 50, you can contribute up to about $6,000 per year 
+           and can add money anytime.
+        </p>
+        <p class="centered one" style="text-align: justify;">  
+            However if you withdraw money early (before the age of 59.5), you may have to pay some taxes on your earnings. 
+            Whether or not you have to pay depends on what you use the money for. 
+            Set this money aside to grow more wealth in the long-run! 
+                    
+        </p>
+        <div class="spacer"></div>
+        <div class="centered flex one">
+            <label for="initial-balance">
+                Current Roth IRA Balance
+            </label>
+            <input type="number" pattern="/d*" id="initial-balance" min="0" value="0">
+            <span class="centered" style="font-size: small;">
+                Set to $0 if you do not have one yet!            
+            </span>
+        </div>
+        <div class="spacer"></div>
+        <div class="centered flex one">
+            <label for="annual-contribution">
+                Your Annual Contribution
+            </label>
+            <input type="number" pattern="/d*" id="annual-contribution" min="0" value="1000">
+            <span class="centered" style="font-size: small;">
+                The max you can contribute if you are less than 50 years old is about $6000 per year.           
+            </span>
+            
+        </div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+    </div>
+
+    <div class="screen animated" id="mangox-rothira-screen-4">
+        <div>
+            <h2 class="centered" style="text-transform: uppercase; font-size: x-large;">
+                Your Roth IRA Grows Tax-Free
+            </h2>
+        </div>
+        <p class="centered one" style="text-align: justify;">
+            In addition to growing tax-free, money in a Roth IRA earns interest 
+            and grows quickly over time by <b>COMPOUNDING 📈</b>, especially when you start early.
+        </p>
+        <p class="centered one" style="text-align: justify;">
+            How you invest your money (examples: stocks of companies, bonds, mutual funds, ETFs) 
+            and your risk tolerance impacts how much your money grows.         
+        </p>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+    </div>
+    <div class="screen animated" id="mangox-rothira-screen-5">
+        <div>
+            <h2 class="centered" style="text-transform: uppercase; font-size: x-large;">
+                What is your risk tolerance?
+            </h2>
+        </div>
+        <p class="centered one" style="text-align: justify;">
+            The <b>RISK/RETURN TRADE-OFF</b> is that the more aggressive risk you take on, 
+            the greater the reward and your Rate of Return (RoR) if the investment makes money. 
+            On the other hand, if you only take a small risk, you will get a smaller reward. 
+            Your <b>RISK TOLERANCE</b> is a personal choice!
+        </p>
+        <p class="centered one" style="text-align: justify;"> 
+            For example, if you invest in Tesla stock 🚗, you may see the value of your account take dips at times. 
+            This is okay, especially if you do not need the money in the near future
+            and want to see it grow more in the long haul. 
+        </p>
+        <div class="centered flex one">
+            <label for="risk-tolerance">
+                What is your Risk Tolerance?
+            </label>
+            <select id="risk-tolerance">
+                <option value="10">Aggressive (10% RoR)</option>
+                <option value="7" selected>Moderate (7-8% RoR)</option>
+                <option value="5.5">Conservative (5-6% RoR)</option>
+            </select> 
+            <span class="centered" style="font-size: small;">
+                Average Rates of Return (RoR) are estimated based on historical averages. 
+            </span>           
+        </div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+    </div>
+
+    <div class="screen animated" id="mangox-rothira-screen-6">
+        <div>
+            <h2 class="centered" style="text-transform: uppercase; font-size: xx-large;">
+                Compounding Interest... 💲💲💲
+            </h2>
+            <p class="centered one" style="text-align: justify;">
+                A Roth IRA is one way to build wealth for your future. 
+                Now, let's see how its balance grows tax-free over time!            
+            </p>
+        </div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+    </div>
+
+
+    <div class="screen animated" id="nav">
+        <div class="centered flex one">
+            <button id="next">NEXT</button>
+            <button onclick="window.location.reload()">START OVER</button>
+        </div>
+    </div>
+
+    <script async>!async function(){const e=document.currentScript.parentElement;let c=0;const s=[].slice.call(e.querySelectorAll("div.screen"),0,-1);e.querySelector("#next").addEventListener("click",t=>{if(c+1<s.length){const e=s[c],t=s[c+1];e.classList.remove("screen-visible"),t.classList.add("screen-visible"),c++}else{const c=[].slice.call(e.querySelectorAll("input, select")),s=window.location.pathname.includes("/embed/")?"./embed/chart/":"./view/chart/",t=new URL(s,window.location.href);c.forEach(e=>{t.searchParams.set(e.id,e.value)}),window.location=t}}),e.querySelector("div.screen:first-of-type").classList.add("screen-visible"),e.querySelector("#nav").classList.add("screen-visible")}();</script>
+</div>
+
+        <!-- Add some whitespace to the bottom -->
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+    </main>
+
+    <!-- Load analytics at the end of the page -->
+    <!-- <script src="components/analytics.tpl.html" data-include data-vars='{"root": "."}'></script> -->
+
+
+</body></html>
