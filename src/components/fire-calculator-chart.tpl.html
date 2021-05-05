@@ -214,10 +214,6 @@
                         console.log('Reset Annual Contribution to: ' + initialAnnualContribution);
                     }
 
-                    //if (z1 == 3 && z2 > 208000){}
-
-
-
                     // CALCULATING THE MARGINAL TAX RATE FOR EACH SCENARIO 
                     // Marital Status is Single 
                     if (initialMaritalStatus == 1 && initialIncome > 0 && initialIncome < 9875){
@@ -380,7 +376,7 @@
                         console.log("Current Taxable Account Balance After Subtracting Taxes: " + currTaxBalance);
                         
                         // SET THE FINAL CURENT BALANCE OF THE TAXABLE BROKERAGE ACCOUNT IN TEXT
-                        if (Years == currRetirementAge - 1){
+                        if (Years == currRetirementAge){
                             rootElement.querySelector('#taxableacctbalance').innerText = Formatter.price(currTaxBalance);
                         }
 
@@ -404,7 +400,7 @@
                         
                         
                         // SET THE FINAL CURRENT BALANCE OF ROTH IRA IN TEXT
-                        if (Years == currRetirementAge - 1){
+                        if (Years == currRetirementAge){
                             rootElement.querySelector('#curr-balance').innerText = Formatter.price(currBalance);
                         }
 
